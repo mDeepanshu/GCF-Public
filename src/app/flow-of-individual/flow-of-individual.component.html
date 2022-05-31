@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      UserName:<input class="form-control" type="text" #username />
+    </div>
+    <div class="col-2">
+      <button
+        class="btn btn-primary"
+        (click)="fetchTransactions(username.value)"
+      >
+        Fetch Transactions
+      </button>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <ul style="list-style-type: none">
+      <li *ngFor="let item of allTransactions">
+        <div class="card card-body">
+          <h5 class="card-title">Transaction Id: {{ item._id }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            Date: {{ item.transaction_datetime }}
+          </h6>
+          <p class="card-text">
+            Transation Details :{{ item.transaction_details }}
+          </p>
+          <p class="card-text">Amount:{{ item.transaction_amount }}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-1">
+      <button class="btn btn-primary" (click)="fetchblock('previous')">
+        Previous
+      </button>
+    </div>
+    <div class="col-2">
+      <button class="btn btn-primary" (click)="fetchblock('next')">Next</button>
+    </div>
+  </div>
+  <div class="container block">
+    <hr />
+    <div class="row">
+      <div class="col">BlockHash {{ blockHash }}</div>
+    </div>
+    <hr />
+    <div class="row">Transaction list:</div>
+    <hr />
+    <div class="row">
+      <div class="row">
+        <div class="col">Transaction ID</div>
+        <div class="col">Sender</div>
+        <div class="col">Receiver</div>
+        <div class="col">Date</div>
+        <div class="col">Amount</div>
+      </div>
+      <hr />
+      <ul style="list-style-type: none">
+        <li *ngFor="let item of transactions">
+          <div class="row">
+            <div class="col">{{ item._id }}</div>
+            <div class="col">{{ item.sender }}</div>
+            <div class="col">{{ item.reciever }}</div>
+            <div class="col">{{ item.transaction_datetime }}</div>
+            <div class="col">{{ item.transaction_amount }}</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
